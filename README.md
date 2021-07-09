@@ -26,10 +26,10 @@ We provide a couple of providers that can be installed separately
 
 | Provider | Badges |
 | -------------- | -------- |
-| [JSON File](./packages/json-provider/) | Coming soon |
-| [Psr-6](./packages/psr-6-provider/) | Coming soon |
-| [Aws Secrets Manager](./packages/aws-secrets-manager-provider/) | Coming soon |
-| [Aws Parameter Store](./packages/aws-parameter-store-provider/) | Coming soon |
+| [JSON File](https://www.github.com/stefna/secrets-manager/tree/main/packages/json-provider/) | Coming soon |
+| [Psr-6](https://www.github.com/stefna/secrets-manager/tree/main/packages/psr-6-provider/) | Coming soon |
+| [Aws Secrets Manager](https://www.github.com/stefna/secrets-manager/tree/main/packages/aws-secrets-manager-provider/) | Coming soon |
+| [Aws Parameter Store](https://www.github.com/stefna/secrets-manager/tree/main/packages/aws-parameter-store-provider/) | Coming soon |
 
 ## Api Documentation
 
