@@ -28,6 +28,7 @@ We provide a couple of providers that can be installed separately
 | -------------- | -------- |
 | [JSON File](./packages/json-provider/) | Coming soon |
 | [Psr-6](./packages/psr-6-provider/) | Coming soon |
+| [Aws Secrets Manager](./packages/aws-secrets-manager-provider/) | Coming soon |
 | [Aws Parameter Store](./packages/aws-parameter-store-provider/) | Coming soon |
 
 ## Api Documentation
