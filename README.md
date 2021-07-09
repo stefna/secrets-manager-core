@@ -27,6 +27,7 @@ We provide a couple of providers that can be installed separately
 | Provider | Badges |
 | -------------- | -------- |
 | [JSON File](./packages/json-provider/) | Coming soon |
+| [Psr-6](./packages/psr-6-provider/) | Coming soon |
 
 ## Api Documentation
 
