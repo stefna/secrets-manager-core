@@ -9,27 +9,23 @@ use Stefna\SecretsManager\Exceptions\ValueNotSupportedException;
  */
 final class Secret implements \ArrayAccess
 {
-	/** @var string */
-	private $key;
+	private string $key;
 	/** @var string|array<string, mixed> */
-	private $value;
+	private string|array $value;
 	/** @var array<string, mixed>|null */
-	private $metadata;
+	private ?array $metadata;
 
 	/**
 	 * @param string|array<string, mixed> $value
 	 * @param array<string, mixed>|null $metadata
 	 */
-	public function __construct(string $key, $value, ?array $metadata = null)
+	public function __construct(string $key, array|string $value, ?array $metadata = null)
 	{
 		$this->key = $key;
 		$this->value = $value;
 		$this->metadata = $metadata;
 	}
 
-	/**
-	 * @return string
-	 */
 	public function getKey(): string
 	{
 		return $this->key;
@@ -38,7 +34,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * @return string|array<string, mixed>
 	 */
-	public function getValue()
+	public function getValue(): array|string
 	{
 		return $this->value;
 	}
@@ -54,7 +50,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * {@inheritdoc}
 	 */
-	public function offsetExists($offset)
+	public function offsetExists(mixed $offset): bool
 	{
 		return is_array($this->value) && array_key_exists($offset, $this->value);
 	}
@@ -62,7 +58,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * @throws ValueNotSupportedException
 	 */
-	public function offsetGet($offset)
+	public function offsetGet(mixed $offset): mixed
 	{
 		if (!is_array($this->value)) {
 			throw new ValueNotSupportedException($this->key);
@@ -74,7 +70,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * @throws \BadMethodCallException
 	 */
-	public function offsetSet($offset, $value)
+	public function offsetSet(mixed $offset, mixed $value): void
 	{
 		throw new \BadMethodCallException('Secrets are immutable');
 	}
@@ -82,7 +78,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * @throws \BadMethodCallException
 	 */
-	public function offsetUnset($offset)
+	public function offsetUnset($offset): void
 	{
 		throw new \BadMethodCallException('Secrets are immutable');
 	}
@@ -90,7 +86,7 @@ final class Secret implements \ArrayAccess
 	/**
 	 * @param string|array<string, mixed> $value
 	 */
-	public function withValue($value): self
+	public function withValue(array|string $value): self
 	{
 		return new Secret($this->key, $value, $this->metadata);
 	}

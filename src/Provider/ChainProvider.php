@@ -8,7 +8,7 @@ use Stefna\SecretsManager\Values\Secret;
 final class ChainProvider implements ProviderInterface
 {
 	/** @var ProviderInterface[] */
-	private $providers;
+	private array $providers;
 
 	public function __construct(ProviderInterface ...$providers)
 	{
@@ -21,8 +21,7 @@ final class ChainProvider implements ProviderInterface
 			try {
 				return $provider->getSecret($key, $options);
 			}
-			catch (SecretNotFoundException $e) {
-			}
+			catch (SecretNotFoundException) {}
 		}
 		throw SecretNotFoundException::withKey($key);
 	}

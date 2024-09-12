@@ -8,14 +8,14 @@ use Stefna\SecretsManager\Values\Secret;
 class ArrayProvider implements ProviderInterface
 {
 	/** @var array<string, Secret> */
-	protected $data = [];
+	protected array $data = [];
 
 	/**
 	 * @param array<string, Secret|string> $data
 	 */
 	public static function fromArray(array $data): self
 	{
-		$self = new self;
+		$self = new self();
 		foreach ($data as $key => $secret) {
 			if (!$secret instanceof Secret) {
 				$secret = new Secret($key, $secret);

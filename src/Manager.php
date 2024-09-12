@@ -8,13 +8,9 @@ use Stefna\SecretsManager\Values\Secret;
 
 final class Manager implements ProviderInterface
 {
-	/** @var ProviderInterface */
-	private $provider;
-
-	public function __construct(ProviderInterface $provider)
-	{
-		$this->provider = $provider;
-	}
+	public function __construct(
+		private readonly ProviderInterface $provider,
+	) {}
 
 	/**
 	 * @throws SecretNotFoundException

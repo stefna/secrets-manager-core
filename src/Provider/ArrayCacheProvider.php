@@ -6,13 +6,9 @@ use Stefna\SecretsManager\Values\Secret;
 
 final class ArrayCacheProvider extends ArrayProvider
 {
-	/** @var ProviderInterface */
-	private $provider;
-
-	public function __construct(ProviderInterface $provider)
-	{
-		$this->provider = $provider;
-	}
+	public function __construct(
+		private readonly ProviderInterface $provider,
+	) {}
 
 	public function getSecret(string $key, ?array $options = []): Secret
 	{

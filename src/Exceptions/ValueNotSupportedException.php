@@ -4,5 +4,4 @@ namespace Stefna\SecretsManager\Exceptions;
 
 final class ValueNotSupportedException extends \RuntimeException
 {
-
 }
